@@ -10,7 +10,7 @@ export default function Footer() {
             <img src={logo} alt="Construtora Araújo" className="w-full h-auto object-contain" />
           </div>
           <p className="text-on-surface/60 text-sm mb-6 leading-relaxed">
-            Excelência técnica em instalação de porcelanatos e pedras naturais. Transformando lares em galerias de arte.
+            Excelência técnica em instalação de porcelanatos, pisos e azulejos. Transformando ambientes de sua obra com precisão.
           </p>
           <div className="flex gap-4">
             <a
@@ -36,7 +36,7 @@ export default function Footer() {
               Serviços
             </h5>
             <ul className="space-y-4">
-              {["Instalação de Porcelanato", "Pisos Vinílicos", "Revestimentos de Parede", "Bancadas e Nichos"].map(
+              {["Instalação de Porcelanato", "Assentamento de Pisos", "Instalação de Azulejos", "Acabamento Meia Esquadria"].map(
                 (item) => (
                   <li key={item}>
                     <a className="text-on-surface/40 text-sm hover:text-white transition-all" href="#">
@@ -71,7 +71,7 @@ export default function Footer() {
 
       <div className="border-t border-outline-variant/10 px-6 md:px-12 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="text-sm text-on-surface/60">
-          © 2024 Construtora Araújo. Todos os direitos reservados.
+          © {new Date().getFullYear()} Construtora Araújo. Todos os direitos reservados.
         </div>
         <div className="flex gap-6">
           <span className="text-on-surface/40 text-xs">Atendimento: Seg-Sex, 8h às 18h</span>

@@ -1,51 +1,63 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+
+const images = Array.from({ length: 18 }, (_, i) => new URL(`../assets/gallery-${i + 1}.jpg`, import.meta.url).href);
 
 export default function Gallery() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
   return (
     <section className="py-24 bg-surface-container-lowest" id="portfolio">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
           <div>
             <h2 className="font-headline text-3xl md:text-4xl font-bold mb-2">Galeria de Projetos</h2>
-            <p className="text-on-surface/60">Artesania digital em pisos e revestimentos.</p>
+            <p className="text-on-surface/60">Especialistas em assentamento de pisos, azulejos e porcelanatos.</p>
           </div>
           <button className="text-primary-container font-bold flex items-center gap-2 hover:underline group">
             Ver todos <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:h-[800px]">
-          <div className="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-2xl group min-h-[300px]">
-            <img
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              src="https://lh3.googleusercontent.com/aida/ADBb0uiKqogVtOOQtS2ZsgciLcIM0CdgXILPYRhPUlwRz3cKebnOEXOjvqkPTgwDr6yOiPmHEiT5gOI6q67v5kvKZxNnqKjmjnbgs7ev0_NMLC_LKI2h5fV3Qx-cS2ZZFBA7pJrg4urQmEafVeYAOS7E0E5KfMwa7Isw-7Qf2KfY9aeTJaPl7uZGg4_e_hOp3UaO1cK2L9WNLf4xoj5-EmJ75_PLdI8aqQAXgmlweEi4T_9rvN0Dm5k7MzMr2Lvx7lQxZ1p94DkS4HO2"
-              alt="Wide shot of luxury kitchen with wood-look porcelain tiles"
-              referrerPolicy="no-referrer"
+        <div className="relative w-full h-[300px] md:h-[600px] rounded-2xl overflow-hidden group bg-surface-container-high">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={currentIndex}
+              src={images[currentIndex]}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className="absolute inset-0 w-full h-full object-contain md:object-cover"
+              alt={`Projeto de piso e porcelanato ${currentIndex + 1}`}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
-              <div>
-                <p className="text-primary-container font-bold text-sm uppercase tracking-widest mb-2">Revestimento Técnico</p>
-                <h3 className="text-2xl font-bold">Área Externa Premium</h3>
-              </div>
-            </div>
-          </div>
+          </AnimatePresence>
 
-          <div className="relative overflow-hidden rounded-2xl group min-h-[200px]">
-            <img
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              src="https://lh3.googleusercontent.com/aida/ADBb0uiAmV3ZUKoKnn29MTNGpiEJs-qPMdAgonMIhlVHztbEUay7UROx-y-QbUIfk27wWn_kWgwqctnf9QDgeGVxLB_BIta4E2Wjgcz04VGKa-u3WB5tnYFeqtoAKyagAo1Iu6A7r0rK4OYAMNKEPBB-0-IxRsfTZXeyxmKCMhYtphZnoE71l7CxS6WS2V9N1Yf_7-ueOVOGA_w-eKOpOeE6k2XdsrO3un1idUGdkotxP-ChPMSy8gYM4dV1_nk3I4ibl0mzXF_p-wgFBA"
-              alt="Modern bathroom with dark gray tiles"
-              referrerPolicy="no-referrer"
-            />
-          </div>
+          <button
+            onClick={prevSlide}
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/50 hover:bg-background text-on-surface p-3 rounded-full backdrop-blur-sm transition-all"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          
+          <button
+            onClick={nextSlide}
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/50 hover:bg-background text-on-surface p-3 rounded-full backdrop-blur-sm transition-all"
+          >
+            <ChevronRight size={24} />
+          </button>
 
-          <div className="relative overflow-hidden rounded-2xl group min-h-[200px]">
-            <img
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              src="https://lh3.googleusercontent.com/aida/ADBb0ug9V7zR-VLRi-OYIpb2pY6rOdQqvK_QxnOJEZqGOJ2_hnObD1W_6T1PnbGZ-gEqsts8PBNsZCMfN8EZsnSGnpzpPmfVMRhGfwXP2vBpNPQD0hb-2nUil9ejtTE2cEkvNogdvUq0VUWIkZ4paZKQXLQsw5s66XvWJdMlQU6cWRPGkhOtpag1FW_0Mh3m2Gp36B_U78wkEfPOr3Leuik_QVLJa63D0aoPMxI3bNIGYGmOFGB-7t_ygK3xw49jqxGIzEGShBBkY0UBpQ"
-              alt="Minimalist living room with white porcelain tiles"
-              referrerPolicy="no-referrer"
-            />
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-background/80 px-4 py-1 rounded-full text-xs font-bold tracking-widest text-on-surface">
+            {currentIndex + 1} / {images.length}
           </div>
         </div>
       </div>

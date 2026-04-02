@@ -40,7 +40,7 @@ export default function Navbar() {
             href="https://api.whatsapp.com/send/?phone=5511989436753&text&type=phone_number&app_absent=0"
             target="_blank"
             rel="noopener noreferrer"
-            className="orange-gradient-btn text-on-primary-fixed px-6 py-2 rounded-lg font-bold scale-95 active:scale-90 transition-transform hidden sm:block"
+            className="blue-gradient-btn text-on-primary-fixed px-6 py-2 rounded-lg font-bold scale-95 active:scale-90 transition-transform hidden sm:block"
           >
             Solicitar Orçamento
           </a>
@@ -76,7 +76,7 @@ export default function Navbar() {
             href="https://api.whatsapp.com/send/?phone=5511989436753&text&type=phone_number&app_absent=0"
             target="_blank"
             rel="noopener noreferrer"
-            className="orange-gradient-btn text-on-primary-fixed px-6 py-3 rounded-lg font-bold text-center"
+            className="blue-gradient-btn text-on-primary-fixed px-6 py-3 rounded-lg font-bold text-center"
           >
             Solicitar Orçamento
           </a>

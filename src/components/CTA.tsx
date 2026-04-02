@@ -19,7 +19,7 @@ export default function CTA() {
           href="https://api.whatsapp.com/send/?phone=5511989436753&text&type=phone_number&app_absent=0"
           target="_blank"
           rel="noopener noreferrer"
-          className="orange-gradient-btn text-on-primary-fixed px-12 py-5 rounded-full font-bold text-xl shadow-2xl shadow-primary-container/30 hover:scale-105 active:scale-95 transition-all flex items-center gap-3 mx-auto w-fit"
+          className="blue-gradient-btn text-on-primary-fixed px-12 py-5 rounded-full font-bold text-xl shadow-2xl shadow-primary-container/30 hover:scale-105 active:scale-95 transition-all flex items-center gap-3 mx-auto w-fit"
         >
           <MessageCircle size={28} />
           Falar no WhatsApp

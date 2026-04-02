@@ -8,6 +8,7 @@ import Hero from "./components/Hero";
 import BeforeAfter from "./components/BeforeAfter";
 import Benefits from "./components/Benefits";
 import Gallery from "./components/Gallery";
+import Showcase from "./components/Showcase";
 import Process from "./components/Process";
 import Testimonials from "./components/Testimonials";
 import FAQ from "./components/FAQ";
@@ -24,6 +25,7 @@ export default function App() {
         <BeforeAfter />
         <Benefits />
         <Gallery />
+        <Showcase />
         <Process />
         <Testimonials />
         <FAQ />
