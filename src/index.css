@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-headline: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-label: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-surface-dim: #131313;
+  --color-on-tertiary-fixed-variant: #004a75;
+  --color-on-surface-variant: #e0c0af;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-primary-container: #ff7a00;
+  --color-background: #131313;
+  --color-surface-container-highest: #353534;
+  --color-on-primary-container: #5c2800;
+  --color-on-secondary-fixed: #321200;
+  --color-surface-variant: #353534;
+  --color-on-primary-fixed-variant: #753400;
+  --color-surface-tint: #ffb68b;
+  --color-secondary-fixed-dim: #ffb68b;
+  --color-primary: #ffb68b;
+  --color-surface-bright: #3a3939;
+  --color-outline: #a78b7c;
+  --color-primary-fixed: #ffdbc8;
+  --color-on-secondary: #522300;
+  --color-surface-container-low: #1c1b1b;
+  --color-tertiary-container: #00a8ff;
+  --color-primary-fixed-dim: #ffb68b;
+  --color-outline-variant: #584235;
+  --color-secondary-container: #74390d;
+  --color-secondary-fixed: #ffdbc8;
+  --color-on-tertiary-fixed: #001d32;
+  --color-secondary: #ffb68b;
+  --color-on-secondary-container: #f9a571;
+  --color-on-tertiary-container: #003a5c;
+  --color-tertiary-fixed: #cde5ff;
+  --color-on-primary: #522300;
+  --color-tertiary: #95ccff;
+  --color-on-primary-fixed: #321200;
+  --color-on-error: #690005;
+  --color-surface-container-high: #2a2a2a;
+  --color-surface-container: #201f1f;
+  --color-surface: #131313;
+  --color-on-surface: #e5e2e1;
+  --color-error-container: #93000a;
+  --color-on-tertiary: #003352;
+  --color-on-error-container: #ffdad6;
+  --color-error: #ffb4ab;
+  --color-inverse-primary: #994700;
+  --color-inverse-surface: #e5e2e1;
+  --color-on-secondary-fixed-variant: #71370b;
+  --color-inverse-on-surface: #313030;
+  --color-tertiary-fixed-dim: #95ccff;
+  --color-on-background: #e5e2e1;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container;
+  }
+}
+
+@layer components {
+  .glass-header {
+    background: rgba(19, 19, 19, 0.6);
+    backdrop-filter: blur(12px);
+  }
+  .orange-gradient-btn {
+    background: linear-gradient(135deg, #ffb68b 0%, #ff7a00 100%);
+  }
+}
